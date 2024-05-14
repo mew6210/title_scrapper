@@ -65,6 +65,11 @@ def scrape_recursive(url, depth=1):
 
 def main():
     url = input("Enter the URL to scrape: ")
+
+    file=open("output.txt","a")
+    file.write(f"scraping for: {url}\n")
+    file.close()
+
     scrape_recursive(url)
 
 if __name__ == "__main__":
