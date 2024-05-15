@@ -19,6 +19,7 @@ def get_links_from_page(url):
         return links
     except Exception as e:
         print("Error:", e)
+        print("Try checking your internet connection")
         return []
 
 def scrape_single_title(url):
@@ -41,15 +42,10 @@ def scrape_recursive(url, depth=1):
     if depth == 0:
         return
     links = get_links_from_page(url)
-    print("Links found on", url)
     for link in links:
         text=scrape_single_title(link)
-
         if text:
-            
-
             trimmed_link=link.replace("https://", "")
-
             file=open("output.txt","a")
             
             try:
@@ -65,7 +61,6 @@ def scrape_recursive(url, depth=1):
 
 def main():
     url = input("Enter the URL to scrape: ")
-
     file=open("output.txt","a")
     file.write(f"scraping for: {url}\n")
     file.close()
