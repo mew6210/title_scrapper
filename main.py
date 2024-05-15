@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import sqlite_operations as sql
+import os
 
 def get_links_from_page(url):
     try:
@@ -73,6 +74,11 @@ def main():
     i_save_option=int(save_option)
 
     if i_save_option==1:
+        if not os.path.exists("output.txt"):
+            file=open("output.txt", 'w')
+            file.close()
+
+
         file=open("output.txt","a")
         file.write(f"scraping for: {url}\n")
         file.close()

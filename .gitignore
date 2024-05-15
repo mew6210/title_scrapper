@@ -1,3 +1,4 @@
 .devdbrc
 scrap_base.db
 __pycache__/
+output.txt
