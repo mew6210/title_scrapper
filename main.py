@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import sqlite_operations as sql
 import os
+import tkinter
 
 def get_links_from_page(url):
     try:
@@ -70,7 +71,7 @@ def scrape_recursive(url:str,save_option:int, depth=1):
 def main():
     url = input("Enter the URL to scrape: ")
 
-    save_option=input("1- to file \n 2- to local db")
+    save_option=input("1- to file\n 2- to local db \n")
     i_save_option=int(save_option)
 
     if i_save_option==1:
@@ -93,6 +94,8 @@ def main():
 
     if i_save_option==2:
         conn.close()
+    
+    print("Scraping completed!")
 
 if __name__ == "__main__":
     main()
